@@ -27,9 +27,31 @@ public class Library extends Building implements LibraryRequirements{
     this.collection.put(title, true);
 
   }
+  public boolean containsTitle(String title){
+    if (this.collection.containsKey(title)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  public boolean isAvailable(String title){
+    if (this.collection.get(title)==true){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  public void printCollection(){
+    for (String title: this.collection.keySet()){
+      System.out.println(title+" "+"status"+" "+this.collection.get(title));
+
+    }
+  }
   
     public static void main(String[] args) {
-      new Library();
+      Library myLibrary= new Library("Neilson", "Nelson Dr 102", 4);
     }
   
   }
